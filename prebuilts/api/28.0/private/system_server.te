@@ -349,6 +349,9 @@ r_dir_file(system_server, vendor_app_file)
 r_dir_file(system_server, vendor_framework_file)
 r_dir_file(system_server, vendor_overlay_file)
 
+# Access /data/system/theme
+r_dir_file(system_server, theme_data_file)
+
 # Manage /data/app-private.
 allow system_server apk_private_data_file:dir create_dir_perms;
 allow system_server apk_private_data_file:file create_file_perms;
@@ -520,6 +523,8 @@ set_prop(system_server, overlay_prop)
 set_prop(system_server, exported_overlay_prop)
 set_prop(system_server, pm_prop)
 set_prop(system_server, exported_pm_prop)
+set_prop(system_server, theme_prop)
+set_prop(system_server, exported_theme_prop)
 userdebug_or_eng(`set_prop(system_server, wifi_log_prop)')
 
 # ctl interface
@@ -631,6 +636,7 @@ allow system_server nfc_service:service_manager find;
 allow system_server radio_service:service_manager find;
 allow system_server stats_service:service_manager find;
 allow system_server storaged_service:service_manager find;
+allow system_server substratum_service:service_manager find;
 allow system_server surfaceflinger_service:service_manager find;
 allow system_server vold_service:service_manager find;
 allow system_server wificond_service:service_manager find;
@@ -720,6 +726,10 @@ allow system_server adbd:unix_stream_socket { getattr getopt ioctl read write sh
 # Allow invoking tools like "timeout"
 allow system_server toolbox_exec:file rx_file_perms;
 
+# Allow access theme data files
+allow system_server theme_data_file:dir { create_dir_perms relabelto rw_dir_perms };
+allow system_server theme_data_file:file { create_file_perms relabelto rw_file_perms };
+
 # Postinstall
 #
 # For OTA dexopt, allow calls coming from postinstall.
@@ -804,6 +814,9 @@ userdebug_or_eng(`
 # UsbDeviceManager uses /dev/usb-ffs
 allow system_server functionfs:dir search;
 allow system_server functionfs:file rw_file_perms;
+
+# allow system_server to look into theme resources
+allow system_server theme_data_file:dir search;
 
 ###
 ### Neverallow rules

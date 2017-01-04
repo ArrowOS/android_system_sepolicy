@@ -155,6 +155,8 @@ type metadata_file, file_type;
 # Vold files within /metadata
 type vold_metadata_file, file_type;
 
+# Default type for everything in /data/system/theme
+type theme_data_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
 # Speedup access for trusted applications to the runtime event tags
 type runtime_event_log_tags_file, file_type;
 # Type for /system/bin/logcat.
