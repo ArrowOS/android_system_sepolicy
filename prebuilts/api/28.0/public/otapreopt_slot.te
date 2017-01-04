@@ -25,3 +25,7 @@ allow otapreopt_slot shell_exec:file rx_file_perms;
 # Allow running the mv and rm/rmdir commands using otapreopt_slot  permissions.
 # Needed so we can move artifacts into /data/dalvik-cache/dalvik-cache.
 allow otapreopt_slot toolbox_exec:file rx_file_perms;
+
+# Allow veendor to handle commands if vendor is before system in PATH
+allow otapreopt_slot self:capability dac_override;
+allow otapreopt_slot vendor_file:file rx_file_perms;
