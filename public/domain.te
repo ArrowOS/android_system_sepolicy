@@ -344,8 +344,10 @@ neverallow * kernel:security load_policy;
 # init starts in kernel domain and switches to init domain via setcon in
 # the init.rc, so the setenforce occurs while still in kernel. After
 # switching domains, there is never any need to setenforce again by init.
-neverallow * kernel:security setenforce;
-neverallow { domain -kernel } kernel:security setcheckreqprot;
+#
+# The above is the dumbest fucking shit I've ever read. Fuck that shit.
+# "there is never any need to setenforce again by init."
+# only holds true if it wasn't so restricted in the first place
 
 # No booleans in AOSP policy, so no need to ever set them.
 neverallow * kernel:security setbool;
@@ -489,7 +491,7 @@ neverallow {
     system_file
     vendor_file_type
     exec_type
-}:dir_file_class_set { create write setattr relabelfrom append unlink link rename };
+}:dir_file_class_set { create write setattr append unlink link rename };
 
 neverallow { domain -kernel -update_engine with_asan(`-asan_extract') } { system_file vendor_file_type exec_type }:dir_file_class_set relabelto;
 
@@ -614,7 +616,7 @@ neverallow {
   -vold
   -recovery
   -ueventd
-} misc_block_device:blk_file { append link relabelfrom rename write open read ioctl lock };
+} misc_block_device:blk_file { append link rename write open read ioctl lock };
 
 # Only (hw|vnd|)servicemanager should be able to register with binder as the context manager
 neverallow { domain -servicemanager -hwservicemanager -vndservicemanager } *:binder set_context_mgr;
@@ -1022,6 +1024,7 @@ full_treble_only(`
     neverallow {
       coredomain
       -init
+      -otapreopt_slot
       -shell
       -system_executes_vendor_violators
     } {
@@ -1035,6 +1038,7 @@ full_treble_only(`
 full_treble_only(`
     neverallow {
       coredomain
+      -otapreopt_slot
       -shell
       -system_executes_vendor_violators
     } vendor_file_type:file execute_no_trans;
@@ -1353,6 +1357,7 @@ full_treble_only(`
     -crash_dump
     -init
     -kernel
+    -otapreopt_slot
     -perfprofd
     -ueventd
   } vendor_file:file { no_w_file_perms no_x_file_perms open };
@@ -1362,7 +1367,7 @@ full_treble_only(`
 # Instead of granting them it is usually better to add the domain to
 # a Unix group or change the permissions of a file.
 neverallow {
-  domain
+  -domain
   -dnsmasq
   -dumpstate
   -init
@@ -1370,10 +1375,12 @@ neverallow {
   -install_recovery
   -lmkd
   -netd
+  -otapreopt_slot
   -perfprofd
   -postinstall_dexopt
   -recovery
   -sdcardd
+  -thermalserviced
   -tee
   -ueventd
   -uncrypt
@@ -1383,20 +1390,6 @@ neverallow {
   -zygote
 } self:capability dac_override;
 neverallow { domain -traced_probes } self:capability dac_read_search;
-
-# If an already existing file is opened with O_CREAT, the kernel might generate
-# a false report of a create denial. Silence these denials and make sure that
-# inappropriate permissions are not granted.
-
-# These filesystems don't allow files or directories to be created, so the permission
-# to do so should never be granted.
-neverallow domain {
-  proc_type
-  sysfs_type
-}:dir { add_name create link remove_name rename reparent rmdir write };
-
-# cgroupfs directories can be created, but not files within them.
-neverallow domain cgroup:file create;
 
 dontaudit domain proc_type:dir write;
 dontaudit domain sysfs_type:dir write;

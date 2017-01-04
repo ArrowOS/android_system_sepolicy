@@ -67,6 +67,11 @@ binder_call(system_app, statsd)
 binder_call(system_app, incidentd)
 
 allow system_app servicemanager:service_manager list;
+
+# Allow system apps to interact with selinux sysfs
+
+allow system_app selinuxfs:file r_file_perms;
+
 # TODO: scope this down? Too broad?
 allow system_app {
   service_manager_type
@@ -111,6 +116,13 @@ allow system_app keystore:keystore_key {
 allow system_app {
   proc_version
 }:file r_file_perms;
+
+# /data/system access
+allow system_app system_data_file:file r_file_perms;
+
+# Allow access theme data files
+allow system_app theme_data_file:dir create_dir_perms;
+allow system_app theme_data_file:file create_file_perms;
 
 control_logd(system_app)
 read_runtime_log_tags(system_app)
