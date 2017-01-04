@@ -2,3 +2,5 @@ typeattribute thermalserviced coredomain;
 
 init_daemon_domain(thermalserviced)
 
+allow thermalserviced self:capability dac_override;
+
