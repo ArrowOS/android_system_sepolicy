@@ -115,7 +115,8 @@ allow { appdomain -ephemeral_app -untrusted_v2_app } vendor_app_file:file execut
 
 # Allow apps access to /vendor/overlay
 r_dir_file(appdomain, vendor_overlay_file)
-
+# Allow apps access to /data/system/theme
+r_dir_file(appdomain, theme_data_file)
 # Allow apps access to /vendor/framework
 # for vendor provided libraries.
 r_dir_file(appdomain, vendor_framework_file)
