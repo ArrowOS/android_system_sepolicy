@@ -60,6 +60,7 @@ type system_prop, property_type, core_property_type;
 type system_radio_prop, property_type, core_property_type;
 type test_boot_reason_prop, property_type;
 type traced_enabled_prop, property_type;
+type theme_prop, property_type;
 type vold_prop, property_type, core_property_type;
 type wifi_log_prop, property_type, log_property_type;
 type wifi_prop, property_type;
@@ -79,6 +80,7 @@ type exported_pm_prop, property_type;
 type exported_radio_prop, property_type;
 type exported_system_prop, property_type;
 type exported_system_radio_prop, property_type;
+type exported_theme_prop, property_type;
 type exported_vold_prop, property_type;
 type exported_wifi_prop, property_type;
 type exported2_config_prop, property_type;
@@ -370,6 +372,7 @@ compatible_property_only(`
     -exported_secure_prop
     -exported_system_prop
     -exported_system_radio_prop
+    -exported_theme_prop
     -exported_vold_prop
     -exported_wifi_prop
     -extended_core_property_type
@@ -402,6 +405,7 @@ compatible_property_only(`
     -system_boot_reason_prop
     -system_prop
     -system_radio_prop
+    -theme_prop
     -test_boot_reason_prop
     -traced_enabled_prop
     -vendor_default_prop
