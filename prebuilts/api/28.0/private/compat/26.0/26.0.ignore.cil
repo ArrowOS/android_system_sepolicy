@@ -37,6 +37,7 @@
     exported_secure_prop
     exported_system_prop
     exported_system_radio_prop
+    exported_theme_prop
     exported_vold_prop
     exported_wifi_prop
     exported2_config_prop

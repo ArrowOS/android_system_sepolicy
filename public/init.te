@@ -81,7 +81,9 @@ allow init fs_bpf:dir mounton;
 allow init device:dir mounton;
 
 # Create and remove symlinks in /.
-allow init rootfs:lnk_file { create unlink };
+
+allow init pstorefs:dir mounton;
+allow init rootfs:lnk_file create_file_perms;
 
 # Mount debugfs on /sys/kernel/debug.
 allow init sysfs:dir mounton;

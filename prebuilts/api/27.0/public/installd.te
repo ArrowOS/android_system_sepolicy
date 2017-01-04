@@ -31,6 +31,8 @@ r_dir_file(installd, system_file)
 r_dir_file(installd, vendor_app_file)
 # Scan through Runtime Resource Overlay APKs in /vendor/overlay
 r_dir_file(installd, vendor_overlay_file)
+# Scan through OMS APKS in /data/system/theme
+r_dir_file(installd, theme_data_file)
 # Get file context
 allow installd file_contexts_file:file r_file_perms;
 # Get seapp_context
