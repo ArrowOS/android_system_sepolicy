@@ -169,6 +169,7 @@
 (typeattributeset drmserver_service_26_0 (drmserver_service))
 (typeattributeset drmserver_socket_26_0 (drmserver_socket))
 (typeattributeset dropbox_service_26_0 (dropbox_service))
+(typeattributeset dufont_service_26_0 (dufont_service))
 (typeattributeset dumpstate_26_0 (dumpstate))
 (typeattributeset dumpstate_exec_26_0 (dumpstate_exec))
 (typeattributeset dumpstate_options_prop_26_0 (dumpstate_options_prop))
