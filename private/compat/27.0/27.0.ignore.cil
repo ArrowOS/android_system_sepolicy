@@ -59,6 +59,7 @@
     incident_helper
     incident_helper_exec
     last_boot_reason_prop
+    lcd_power_save_service
     lowpan_device
     lowpan_prop
     lowpan_service
