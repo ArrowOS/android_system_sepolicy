@@ -349,6 +349,9 @@ r_dir_file(system_server, vendor_app_file)
 r_dir_file(system_server, vendor_framework_file)
 r_dir_file(system_server, vendor_overlay_file)
 
+# Access /data/system/theme
+r_dir_file(system_server, theme_data_file)
+
 # Manage /data/app-private.
 allow system_server apk_private_data_file:dir create_dir_perms;
 allow system_server apk_private_data_file:file create_file_perms;
@@ -520,6 +523,7 @@ set_prop(system_server, overlay_prop)
 set_prop(system_server, exported_overlay_prop)
 set_prop(system_server, pm_prop)
 set_prop(system_server, exported_pm_prop)
+set_prop(system_server, theme_prop)
 userdebug_or_eng(`set_prop(system_server, wifi_log_prop)')
 
 # ctl interface
@@ -536,10 +540,6 @@ get_prop(system_server, last_boot_reason_prop)
 
 # Collect metrics on boot time created by init
 get_prop(system_server, boottime_prop)
-
-# theme property
-get_prop(system_server, theme_prop)
-set_prop(system_server, theme_prop)
 
 # Read device's serial number from system properties
 get_prop(system_server, serialno_prop)
