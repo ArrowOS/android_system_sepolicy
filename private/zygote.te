@@ -54,6 +54,7 @@ allow zygote dex2oat_exec:file rx_file_perms;
 
 # Allow apps access to /vendor/overlay
 r_dir_file(zygote, vendor_overlay_file)
+r_dir_file(zygote, theme_data_file)
 
 # Control cgroups.
 allow zygote cgroup:dir create_dir_perms;
@@ -117,6 +118,7 @@ get_prop(zygote, exported_overlay_prop)
 # Themes
 allow zygote theme_data_file:file r_file_perms;
 allow zygote theme_data_file:dir r_dir_perms;
+get_prop(zygote, theme_prop)
 
 ###
 ### neverallow rules
