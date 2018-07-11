@@ -488,7 +488,7 @@ neverallow {
     system_file
     vendor_file_type
     exec_type
-}:dir_file_class_set { create write setattr relabelfrom append unlink link rename };
+}:dir_file_class_set { create write setattr append unlink link rename };
 
 neverallow { domain -kernel with_asan(`-asan_extract') } { system_file vendor_file_type exec_type }:dir_file_class_set relabelto;
 
@@ -612,7 +612,7 @@ neverallow {
   -vold
   -recovery
   -ueventd
-} misc_block_device:blk_file { append link relabelfrom rename write open read ioctl lock };
+} misc_block_device:blk_file { append link rename write open read ioctl lock };
 
 # Only (hw|vnd|)servicemanager should be able to register with binder as the context manager
 neverallow { domain -servicemanager -hwservicemanager -vndservicemanager } *:binder set_context_mgr;

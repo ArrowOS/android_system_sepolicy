@@ -128,6 +128,21 @@ recovery_only(`
   allow recovery fuse:dir r_dir_perms;
   allow recovery fuse:file r_file_perms;
 
+ allow recovery block_device:dir w_dir_perms;
+ allow recovery block_device:lnk_file create_file_perms;
+ allow recovery bootchart_data_file:dir r_dir_perms;
+ allow recovery hwservicemanager_prop:property_service set;
+ allow recovery media_rw_data_file:dir r_dir_perms;
+ allow recovery pstorefs:dir r_dir_perms;
+ allow recovery rootfs:dir create_dir_perms;
+ allow recovery rootfs:fifo_file create_file_perms;
+ allow recovery selinuxfs:file w_file_perms;
+ allow recovery system_data_file:dir r_dir_perms;
+ allow recovery tee_listener_prop:property_service set;
+ allow recovery tmpfs:fifo_file r_file_perms;
+ allow recovery unencrypted_data_file:dir r_dir_perms;
+ allow recovery vold_prop:property_service set;
+
   wakelock_use(recovery)
 
   # This line seems suspect, as it should not really need to
