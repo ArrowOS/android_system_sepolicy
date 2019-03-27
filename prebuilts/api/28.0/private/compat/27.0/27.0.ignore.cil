@@ -41,7 +41,6 @@
     exported_secure_prop
     exported_system_prop
     exported_system_radio_prop
-    exported_theme_prop
     exported_vold_prop
     exported_wifi_prop
     fingerprint_vendor_data_file
@@ -59,7 +58,6 @@
     incident_helper
     incident_helper_exec
     last_boot_reason_prop
-    lcd_power_save_service
     lowpan_device
     lowpan_prop
     lowpan_service

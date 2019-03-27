@@ -92,7 +92,6 @@ type imms_service, app_api_service, ephemeral_app_api_service, system_server_ser
 type ipsec_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 type jobscheduler_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 type launcherapps_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
-type lcd_power_save_service, system_api_service, system_server_service, service_manager_type;
 type location_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 type lock_settings_service, system_api_service, system_server_service, service_manager_type;
 type media_projection_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
@@ -136,7 +135,6 @@ type slice_service, app_api_service, system_server_service, service_manager_type
 type statusbar_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 type storagestats_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 type system_update_service, system_server_service, service_manager_type;
-type substratum_service, app_api_service, system_server_service, service_manager_type;
 type task_service, system_server_service, service_manager_type;
 type textclassification_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;
 type textservices_service, app_api_service, ephemeral_app_api_service, system_server_service, service_manager_type;

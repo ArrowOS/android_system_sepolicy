@@ -39,7 +39,6 @@ devicestoragemonitor                      u:object_r:devicestoragemonitor_servic
 diskstats                                 u:object_r:diskstats_service:s0
 display.qservice                          u:object_r:surfaceflinger_service:s0
 display                                   u:object_r:display_service:s0
-dufont                                    u:object_r:dufont_service:s0
 netd_listener                             u:object_r:netd_listener_service:s0
 DockObserver                              u:object_r:DockObserver_service:s0
 dreams                                    u:object_r:dreams_service:s0
@@ -97,7 +96,6 @@ media_router                              u:object_r:media_router_service:s0
 media_session                             u:object_r:media_session_service:s0
 meminfo                                   u:object_r:meminfo_service:s0
 midi                                      u:object_r:midi_service:s0
-mirror_power_save                         u:object_r:lcd_power_save_service:s0
 mount                                     u:object_r:mount_service:s0
 netd                                      u:object_r:netd_service:s0
 netpolicy                                 u:object_r:netpolicy_service:s0
@@ -146,7 +144,6 @@ statusbar                                 u:object_r:statusbar_service:s0
 storaged                                  u:object_r:storaged_service:s0
 storaged_pri                              u:object_r:storaged_service:s0
 storagestats                              u:object_r:storagestats_service:s0
-substratum                                u:object_r:substratum_service:s0
 SurfaceFlinger                            u:object_r:surfaceflinger_service:s0
 task                                      u:object_r:task_service:s0
 telecom                                   u:object_r:telecom_service:s0
