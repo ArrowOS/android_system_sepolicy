@@ -21,8 +21,17 @@ typealias app_exec_data_file alias rs_data_file;
 # of application data.
 type rollback_data_file, file_type, data_file_type, core_data_file_type;
 
+<<<<<<< HEAD   (d0e936 Snap for 6676900 from 5491d7e26cad49e8e48281e320270b0dbd0926)
 # /data/gsi/ota
 type ota_image_data_file, file_type, data_file_type, core_data_file_type;
 
 # /data/misc/emergencynumberdb
 type emergency_data_file, file_type, data_file_type, core_data_file_type;
+=======
+#Temp labels
+type bt_firmware_file, file_type, contextmount_type, vendor_file_type;
+type dsp_file, file_type, contextmount_type, vendor_file_type;
+type firmware_file, file_type, contextmount_type, vendor_file_type;
+type fsg_file, file_type, contextmount_type, vendor_file_type;
+type persist_file, file_type, contextmount_type, vendor_file_type;
+>>>>>>> CHANGE (9e5d41 sepolicy: [DO NOT MERGE] Label some partitions to fix zippin)
