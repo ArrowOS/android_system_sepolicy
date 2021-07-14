@@ -562,18 +562,18 @@ compatible_property_only(`
   }:file no_rw_file_perms;
 ')
 
-compatible_property_only(`
-  # Neverallow coredomain to set vendor properties
-  neverallow {
-    coredomain
-    -init
-    -system_writes_vendor_properties_violators
-  } {
-    property_type
-    -system_property_type
-    -extended_core_property_type
-  }:property_service set;
-')
+#compatible_property_only(`
+   # Neverallow coredomain to set vendor properties
+#  neverallow {
+#    coredomain
+#    -init
+#    -system_writes_vendor_properties_violators
+#  } {
+#    property_type
+#    -system_property_type
+#    -extended_core_property_type
+#  }:property_service set;
+#')
 
 neverallow {
   -init
