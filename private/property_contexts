@@ -140,6 +140,7 @@ ro.crypto.              u:object_r:vold_prop:s0
 # ro.build.fingerprint is either set in /system/build.prop, or is
 # set at runtime by system_server.
 ro.build.fingerprint    u:object_r:fingerprint_prop:s0 exact string
+ro.build.gms_fingerprint u:object_r:fingerprint_prop:s0 exact string
 
 ro.persistent_properties.ready  u:object_r:persistent_properties_ready_prop:s0
 
